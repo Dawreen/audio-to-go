@@ -1,0 +1,20 @@
+services:
+  audio-to-go:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+      - ALLOWED_USER_ID=${ALLOWED_USER_ID}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-2.0-flash}
+      - GIT_REMOTE_URL=${GIT_REMOTE_URL}
+      - GIT_USER_EMAIL=${GIT_USER_EMAIL}
+      - GIT_USER_NAME=${GIT_USER_NAME}
+      - TZ=${TZ:-Europe/Rome}
+    volumes:
+      - notes_data:/app/notes
+
+volumes:
+  notes_data:

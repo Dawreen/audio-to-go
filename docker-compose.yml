@@ -1,0 +1,8 @@
+services:
+  audio-to-go:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - .:/app                   # full project root — container shares .git with host
+      - /root/.ssh:/root/.ssh:ro # SSH keys for git push (read-only)

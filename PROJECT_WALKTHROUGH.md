@@ -597,7 +597,7 @@ notes/            # notes have their own separate Git repo
 
 ## SSH Key Authentication
 
-How `make deploy`, `git push`, and the container authenticate without passwords:
+How `git push` and the container authenticate without passwords:
 
 ```bash
 # 1. Generate key pair (once)
